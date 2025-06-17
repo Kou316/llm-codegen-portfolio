@@ -38,7 +38,7 @@ npm run dev
 ###バックエンド
 バックエンドは　Flask　による簡易APIサーバとして構築され、以下のような処理を行います:
 
--モデルとトーク内座を読み込み（StarCoderBase-1B）
+-モデルとトークナイザーを読み込み（StarCoderBase-1B）
 -LoRAのadapterを読み込み
 -`/generate`エンドポイントでPOSTを受け取り、コード生成して返す
 
