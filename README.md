@@ -1,6 +1,6 @@
 # llm-codegen-portfolio
 
-LoRAによってファインチューニングした小規模LLM（StarCoderBase）を使って、競技プログラミング問題の模範解答を自動生成するWebアプリです。
+LoRAによってファインチューニングした小規模LLM（StarCoderBase）を使って、競技プログラミング問題の模範解答を自動生成するWebアプリです。（製作中）
 
 React + Typescriptでフロントエンドを構築し、Google Colab上のFlask APIと接続しています。
 
