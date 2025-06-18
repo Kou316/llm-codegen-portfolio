@@ -1,13 +1,14 @@
 # llm-codegen-portfolio
 
-LoRAによってファインチューニングした小規模LLM（StarCoderBase）を使って、競技プログラミング問題の模範解答を自動生成するWebアプリです。（製作中）　　
+LoRAによってファインチューニングした小規模LLM（StarCoderBase）を使って、競技プログラミング問題の模範解答を自動生成するWebアプリです。（製作中）
+
 React + Typescriptでフロントエンドを構築し、Google Colab上のFlask APIと接続しています。
 
 ---
 
 ##特徴
 
--LoRAによる軽量ファインチューニング
+-LoRAによる軽量なファインチューニング
 -自然言語で問題文を入力 → LLMが模範解答を生成　　
 -フロントエンドはReact + Typescript、バックエンドはFlask + Google Colab + pyngrok　　
 -python / C++ / Javaなど多言語対応（2025/6/17時点Pythonのみ対応）　　
@@ -25,43 +26,42 @@ React + Typescriptでフロントエンドを構築し、Google Colab上のFlask
 
 
 ##起動方法
+---
 
-
-###フロントエンド（React）
+###フロントエンドの起動（React）
 
 ```bash
 cd frontend
 npm install
 npm run dev
-
 ```
+-ブラウザで https://localhost:5173　を開きます。
+-フロントエンドからバックエンドの.generateAPIにリクエストを送信します。
 
+###バックエンド（Flask + LoRA）
 
-###バックエンド
-
-バックエンドは　Flask　による簡易APIサーバとして構築され、以下のような処理を行います:
-
--モデルとトークナイザーを読み込み（StarCoderBase-1B）
--LoRAのadapterを読み込み
--`/generate`エンドポイントでPOSTを受け取り、コード生成して返す
-
+バックエンドは　Flask　による簡易APIサーバとして構築され、以下のような処理を行います
+1.Python環境の準備
 ```python
-@app.route("/generate", methods=["POST"])
-def generate():
-  data = request.get_json()
-  prompt = data.get("prompt", "")
-  max_tokens - data.get("max_tokens", 128)
-
-  inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-  outputs = model.generate(
-    **inputs,
-    max_new_tokens=max_tokens,
-    do_sample=True
-  )
-
-  output_text = tokenizer.decode(output[0], skip_special_toknes=True)
-  return jsonfy({"code": output_text})
+cd backend
+pip install -r requirements.txt
 ```
 
+2.モデルの用意（Colab推奨）
+-finetuned_model_ex1/　以下にLoRAの　adapter_model.sfatensors　などを配置します。
+-モデルのロード先は　model.py　
+の中で指定されます。
+
+3.Flaskサーバの起動
+```bash
+python app.py
+```
+-デフォルトで　https://127.0.0.1:5000　に立ち上がります。
+
+-ngrokを使用する場合
+```bash
+ngrol http 5000
+```
+-発行されたURLをReact側で使用することで外部からのアクセスも可能です。
 
 
