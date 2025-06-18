@@ -45,6 +45,7 @@ npm run dev
 ###バックエンド（Flask + LoRA）
 
 バックエンドは　Flask　による簡易APIサーバとして構築され、以下のような処理を行います
+
 1.Python環境の準備
 ```python
 cd backend
