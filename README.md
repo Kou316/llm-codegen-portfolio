@@ -8,9 +8,9 @@ React + Typescriptでフロントエンドを構築し、Google Colab上のFlask
 ##特徴
 
 -LoRAによる軽量ファインチューニング
--自然言語で問題文を入力 → LLMが模範解答を生成
--フロントエンドはReact + Typescript、バックエンドはFlask + Google Colab + pyngrok
--python / C++ / Javaなど多言語対応（2025/6/17時点Pythonのみ対応）
+-自然言語で問題文を入力 → LLMが模範解答を生成　　
+-フロントエンドはReact + Typescript、バックエンドはFlask + Google Colab + pyngrok　　
+-python / C++ / Javaなど多言語対応（2025/6/17時点Pythonのみ対応）　　
 
 ---
 
