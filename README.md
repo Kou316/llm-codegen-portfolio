@@ -9,8 +9,11 @@ React + Typescriptでフロントエンドを構築し、Google Colab上のFlask
 ##特徴
 
 -LoRAによる軽量なファインチューニング
--自然言語で問題文を入力 → LLMが模範解答を生成　　
+
+-自然言語で問題文を入力 → LLMが模範解答を生成
+
 -フロントエンドはReact + Typescript、バックエンドはFlask + Google Colab + pyngrok　　
+
 -python / C++ / Javaなど多言語対応（2025/6/17時点Pythonのみ対応）　　
 
 ---
@@ -36,6 +39,7 @@ npm install
 npm run dev
 ```
 -ブラウザで https://localhost:5173　を開きます。
+
 -フロントエンドからバックエンドの.generateAPIにリクエストを送信します。
 
 ###バックエンド（Flask + LoRA）
@@ -48,9 +52,8 @@ pip install -r requirements.txt
 ```
 
 2.モデルの用意（Colab推奨）
--finetuned_model_ex1/　以下にLoRAの　adapter_model.sfatensors　などを配置します。
--モデルのロード先は　model.py　
-の中で指定されます。
+-finetuned_model_ex1/　以下にLoRAの　adapter_model.safetensors　などを配置します。
+-モデルのロード先は　model.py　の中で指定されます。
 
 3.Flaskサーバの起動
 ```bash
@@ -60,7 +63,7 @@ python app.py
 
 -ngrokを使用する場合
 ```bash
-ngrol http 5000
+ngrok http 5000
 ```
 -発行されたURLをReact側で使用することで外部からのアクセスも可能です。
 
